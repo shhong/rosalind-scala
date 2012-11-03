@@ -4,7 +4,8 @@ import common._
 
 object ConsensusProfile {
 
-  def elemSum(as: Seq[Int], bs: Seq[Int]) = {
+  def elemSum[T](as: Seq[T], bs: Seq[T])(implicit n: Numeric[T]) = {
+    import n.mkNumericOps
     require(as.size == bs.size)
     for ((a, b) <- as.iterator zip bs.iterator) yield (a + b)
   }

@@ -4,9 +4,9 @@ import common._
 
 object OverlapGraph {
 
-  def printO3(x: List[(String, String, String)]): Unit = if (!x.isEmpty) {
+  def printOk(x: List[(String, String, String)]): Unit = if (!x.isEmpty) {
       def loop(y: (String, String, String), z: List[(String, String, String)]): Unit = z match {
-          case Nil => printO3(x.tail)
+          case Nil => printOk(x.tail)
           case _ => (y, z.head) match {
               case ((n1g, n1p, n1s), (n2g, n2p, n2s)) => {
                   if (n1s==n2p) println("%s %s".format(n1g, n2g))
@@ -23,6 +23,6 @@ object OverlapGraph {
       val k = 3
       
       val preSuf = readFASTA(lines).map(x => x match {case (x, y) => (x, y.take(k), y.takeRight(k))})
-      printO3(preSuf.toList)
+      printOk(preSuf.toList)
    }
 }

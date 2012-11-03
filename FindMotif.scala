@@ -18,7 +18,7 @@ object FindMotif {
       val dnaString: String = lines(0)
       val motif: String = lines(1)
       
-      def redactMotif(x: String, i: Int): String = x.take(i) + "---------" + x.drop(i+motif.lenght)
+      def redactMotif(x: String, i: Int): String = x.take(i) + "---------" + x.drop(i+motif.length)
       
       println(findMotif(dnaString, motif).mkString(" "))
     }
